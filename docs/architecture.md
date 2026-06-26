@@ -22,13 +22,13 @@
 
 ```mermaid
 graph LR
-    User([ユーザー]) -->|HTTPS| CDN[CDN / CloudFront]
-    CDN -->|静的ファイル| FE[Frontend App (Next.js)]
+    User(["ユーザー"]) -->|HTTPS| CDN[CDN / CloudFront]
+    CDN -->|静的ファイル| FE["Frontend App (Next.js)"]
     CDN -->|APIリクエスト| ALB[ALB / Ingress]
-    ALB -->|APIサーバー| BE[Backend API (NestJS / Go)]
-    BE -->|データ保存| DB[(Database / PostgreSQL)]
-    BE -->|キャッシュ / キュー| Redis[(Redis)]
-    BE -->|外部連携| Ext[外部API / Stripe, SendGrid等]
+    ALB -->|APIサーバー| BE["Backend API (NestJS / Go)"]
+    BE -->|データ保存| DB[("Database / PostgreSQL")]
+    BE -->|キャッシュ / キュー| Redis[("Redis")]
+    BE -->|外部連携| Ext["外部API / Stripe, SendGrid等"]
 ```
 
 - **フロントエンド**: [Next.js / React] を使用し、[Vercel / AWS Amplify / ECS] にホストされています。
